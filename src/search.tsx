@@ -1,33 +1,30 @@
-import { List, ActionPanel, Action, open } from "@raycast/api";
+import { Action, ActionPanel, Form, open } from "@raycast/api";
 import { useState } from "react";
 
-export default function Command() {
+export default function SearchTidal() {
   const [query, setQuery] = useState("");
 
-  function searchInTidal(q: string) {
-    if (!q.trim()) return;
-    // Use web search as fallback
-    open(`https://listen.tidal.com/search?q=${encodeURIComponent(q)}`);
-  }
+  const handleSearch = async () => {
+    const encoded = encodeURIComponent(query.trim());
+    await open(`https://listen.tidal.com/search?q=${encoded}`);
+  };
 
   return (
-    <List
-      searchBarPlaceholder="Type a song and press enter..."
-      onSearchTextChange={setQuery}
-      throttle
+    <Form
+      navigationTitle="Search Tidal"
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Search in Tidal" onSubmit={handleSearch} />
+        </ActionPanel>
+      }
     >
-      <List.Item
-        key="search"
-        title={`Search for "${query}" in Tidal (web)`}
-        actions={
-          <ActionPanel>
-            <Action
-              title="Search in Browser"
-              onAction={() => searchInTidal(query)}
-            />
-          </ActionPanel>
-        }
+      <Form.TextField
+        id="query"
+        title="Search"
+        placeholder="Type song, artist, or album"
+        value={query}
+        onChange={setQuery}
       />
-    </List>
+    </Form>
   );
 }

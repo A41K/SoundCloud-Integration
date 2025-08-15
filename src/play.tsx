@@ -1,23 +1,17 @@
-import puppeteer from "puppeteer";
+import { Action, ActionPanel, Detail } from "@raycast/api";
+import { tidalPlayPause, tidalNextTrack, tidalPreviousTrack } from "./utils";
 
-async function toggleTidal() {
-  const browser = await puppeteer.launch({ headless: false });
-  const pages = await browser.pages();
-
-  // Find an open tidal tab
-  let tidalPage = pages.find((p) => p.url().includes("listen.tidal.com"));
-
-  // Or open it if not already
-  if (!tidalPage) {
-    tidalPage = await browser.newPage();
-    await tidalPage.goto("https://listen.tidal.com");
-  }
-
-  // Execute play/pause button click
-  await tidalPage.evaluate(() => {
-    const button = document.querySelector('[data-test="play-pause-button"]') as HTMLElement;
-    if (button) button.click();
-  });
+export default function TidalControls() {
+  return (
+    <Detail
+      markdown="## 🎵 Tidal Controls Use these actions to control playback."
+      actions={
+        <ActionPanel>
+          <Action title="Play / Pause" onAction={tidalPlayPause} />
+          <Action title="Next Track" onAction={tidalNextTrack} />
+          <Action title="Previous Track" onAction={tidalPreviousTrack} />
+        </ActionPanel>
+      }
+    />
+  );
 }
-
-toggleTidal();
