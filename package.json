@@ -1,42 +1,23 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "tidal-integration",
-  "title": "Tidal Integration",
-  "description": "Integrate with Tidal to control playback and open the app.",
+  "name": "Tidal",
+  "title": "Tidal",
+  "description": "Tidal for RayCast",
   "icon": "extension-icon.png",
-  "author": "samliu",
+  "author": "A41K",
   "license": "MIT",
-  "platforms": [
-    "macOS"
-  ],
   "commands": [
     {
-      "name": "open",
-      "title": "Open Tidal",
-      "description": "Open the Tidal app",
-      "mode": "view"
-    },
-    {
-      "name": "play",
-      "title": "Play Song",
-      "description": "Play Song",
-      "mode": "view"
-    },
-    {
-      "name": "search",
-      "title": "Search Song",
-      "description": "Search Song",
+      "name": "scroll",
+      "title": "Scroll",
+      "description": "Doomscrolling on tiktok",
       "mode": "view"
     }
   ],
   "dependencies": {
-    "@jjdenhertog/tidal-music-search": "^1.0.5",
     "@raycast/api": "^1.101.1",
     "@raycast/utils": "^1.17.0",
-    "cheerio": "^1.1.2",
-    "node-fetch": "^3.3.2",
-    "playwright": "^1.45.0",
-    "puppeteer": "^24.16.2"
+    "openai": "^5.12.2"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.4",
@@ -46,44 +27,14 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
-  "preferences": [
-    {
-      "name": "authorization",
-      "title": "Authorization (Bearer …)",
-      "type": "password",
-      "placeholder": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…",
-      "required": true
-    },
-    {
-      "name": "xTidalToken",
-      "title": "X-Tidal-Token",
-      "type": "password",
-      "placeholder": "Client token from web app",
-      "required": true
-    },
-    {
-      "name": "countryCode",
-      "title": "Country Code",
-      "type": "textfield",
-      "placeholder": "US",
-      "required": true,
-      "default": "US"
-    }
-  ],
-  "commands": [
-    {
-      "name": "search-tidal",
-      "title": "Search TIDAL",
-      "subtitle": "Tracks, Albums, Artists",
-      "mode": "view"
-    },
-    {
-      "name": "tidal-controls",
-      "title": "TIDAL Controls",
-      "subtitle": "Play/Pause, Next, Previous",
-      "mode": "view"
-    }
-  ],
+"preferences": [
+  {
+    "name": "openrouter_api_key",
+    "type": "password",
+    "title": "OpenRouter API Key",
+    "placeholder": "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"
+  }
+],
   "scripts": {
     "build": "ray build",
     "dev": "ray develop",

@@ -4,21 +4,13 @@
   "compilerOptions": {
     "lib": ["ES2023"],
     "module": "commonjs",
-    "target": "es2020",
-    "module": "commonjs",
-    "lib": ["es2020", "dom"],
-    "jsx": "react-jsx",
+    "target": "ES2023",
     "strict": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["src"]
+    "jsx": "react-jsx",
+    "resolveJsonModule": true
+  }
 }
