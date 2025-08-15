@@ -9,7 +9,7 @@
   "platforms": [
     "macOS",
     "Windows"
-],
+  ],
   "commands": [
     {
       "name": "open",
@@ -28,12 +28,19 @@
       "title": "Pause Song",
       "description": "Pause Song",
       "mode": "view"
-
+    },
+    {
+      "name": "search",
+      "title": "Search Song",
+      "description": "Search Song",
+      "mode": "view"
     }
   ],
   "dependencies": {
+    "@jjdenhertog/tidal-music-search": "^1.0.5",
     "@raycast/api": "^1.101.1",
-    "@raycast/utils": "^1.17.0"
+    "@raycast/utils": "^1.17.0",
+    "puppeteer": "^24.16.2"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.4",
@@ -43,6 +50,18 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
+  "preferences": [
+    {
+      "name": "tidalClientId",
+      "type": "password",
+      "title": "Tidal Client ID"
+    },
+    {
+      "name": "tidalClientSecret",
+      "type": "password",
+      "title": "Tidal Client Secret"
+    }
+  ],
   "scripts": {
     "build": "ray build",
     "dev": "ray develop",

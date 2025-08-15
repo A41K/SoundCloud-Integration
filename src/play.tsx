@@ -1,11 +1,23 @@
-import { open } from "@raycast/api";
-import { useEffect } from "react";
+import puppeteer from "puppeteer";
 
-export default function Command() {
-  useEffect(() => {
+async function toggleTidal() {
+  const browser = await puppeteer.launch({ headless: false });
+  const pages = await browser.pages();
 
-    open("tidal://play");
-  }, []);
+  // Find an open tidal tab
+  let tidalPage = pages.find((p) => p.url().includes("listen.tidal.com"));
 
-  return null;
+  // Or open it if not already
+  if (!tidalPage) {
+    tidalPage = await browser.newPage();
+    await tidalPage.goto("https://listen.tidal.com");
+  }
+
+  // Execute play/pause button click
+  await tidalPage.evaluate(() => {
+    const button = document.querySelector('[data-test="play-pause-button"]') as HTMLElement;
+    if (button) button.click();
+  });
 }
+
+toggleTidal();
