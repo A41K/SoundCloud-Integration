@@ -16,7 +16,20 @@
       "title": "Open SoundCloud",
       "description": "Open SoundCloud",
       "mode": "view"
+    },
+    {
+      "name": "play",
+      "title": "Play Song",
+      "description": "Play Song",
+      "mode": "view"
+    },
+    {
+      "name": "pause",
+      "title": "Pause Song",
+      "description": "Pause Song",
+      "mode": "view"
     }
+
   ],
   "dependencies": {
     "@raycast/api": "^1.101.1",
