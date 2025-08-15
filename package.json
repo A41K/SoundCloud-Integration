@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "Tidal",
-  "title": "Tidal",
-  "description": "Control Tidal",
+  "name": "tidal-integration",
+  "title": "Tidal Integration",
+  "description": "Integrate with Tidal to control playback and open the app.",
   "icon": "extension-icon.png",
   "author": "samliu",
   "license": "MIT",
