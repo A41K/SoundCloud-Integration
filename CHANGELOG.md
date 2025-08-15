@@ -1,7 +1,3 @@
-# Raycast Tidal Integration Changelog
+# Weather Changelog
 
-## 1.0.0 (2023-10-27)
-
-- Initial release with Tidal integration.
-- Commands for opening Tidal, playing, and pausing tracks.
-- Updated README and package.json to reflect Tidal functionality.
+## [Initial Version] - {PR_MERGE_DATE}

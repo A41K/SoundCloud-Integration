@@ -14,7 +14,7 @@
     {
       "name": "open",
       "title": "Open Tidal",
-      "description": "Open Tidal",
+      "description": "Open the Tidal app",
       "mode": "view"
     },
     {
@@ -28,8 +28,8 @@
       "title": "Pause Song",
       "description": "Pause Song",
       "mode": "view"
-    }
 
+    }
   ],
   "dependencies": {
     "@raycast/api": "^1.101.1",
