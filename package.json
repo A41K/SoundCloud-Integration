@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "Tidal",
+  "name": "tidal",
   "title": "Tidal",
   "description": "A simple extension for Tidal",
   "icon": "extension-icon.png",
@@ -9,14 +9,38 @@
   "commands": [
     {
       "name": "open",
-      "title": "open",
+      "title": "Open",
       "description": "Opening Tidal",
       "mode": "view"
     },
     {
       "name": "query",
-      "title": "query",
+      "title": "Query",
       "description": "Searching on Tidal",
+      "mode": "view"
+    },
+    {
+      "name": "playlist",
+      "title": "Playlist",
+      "description": "Opening a Tidal playlist",
+      "mode": "view"
+    },
+    {
+      "name": "recently",
+      "title": "Recently Played",
+      "description": "Opening recently played tracks on Tidal",
+      "mode": "view"
+    },
+    {
+      "name": "collection",
+      "title": "Collection",
+      "description": "Opening Tidal collection",
+      "mode": "view"
+    },
+    {
+      "name": "subscription",
+      "title": "Subscription",
+      "description": "Check your Subscription",
       "mode": "view"
     }
   ],

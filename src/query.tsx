@@ -1,40 +1,33 @@
+import { Form, ActionPanel, Action } from "@raycast/api";
 import { exec } from "child_process";
 
-// Check if TIDAL is currently running
-function isTidalRunning(): Promise<boolean> {
-  return new Promise((resolve) => {
-    exec('tasklist /FI "IMAGENAME eq TIDAL.exe"', (err, stdout) => {
-      if (err) {
-        resolve(false);
-        return;
-      }
-      resolve(stdout.toLowerCase().includes("tidal.exe"));
-    });
-  });
-}
-
-// Try to search in the TIDAL desktop app (via URL scheme)
-function searchInTidal(query: string) {
-  const encoded = encodeURIComponent(query);
-  exec(`start tidal://search/${encoded}`);
-}
-
-// Fallback → search in the TIDAL web player
 function searchInTidalWeb(query: string) {
   const encoded = encodeURIComponent(query);
-  exec(`start https://listen.tidal.com/search/${encoded}`);
+  // On Windows, `start` will open the URL in the default browser
+  exec(`start https://listen.tidal.com/search?q=${encoded}`);
 }
 
-// Main handler
-async function handleSearch(prompt: string) {
-  if (await isTidalRunning()) {
-    console.log("TIDAL app is running → searching inside app");
-    searchInTidal(prompt);
-  } else {
-    console.log("TIDAL app not found → opening in browser");
-    searchInTidalWeb(prompt);
+export default function Command() {
+  function handleSubmit(values: { query: string }) {
+    if (values.query.trim()) {
+      searchInTidalWeb(values.query);
+    }
   }
-}
 
-// Example usage
-handleSearch("Radiohead");
+  return (
+    <Form
+      navigationTitle="Search TIDAL"
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Search on TIDAL Web" onSubmit={handleSubmit} />
+        </ActionPanel>
+      }
+    >
+      <Form.TextField
+        id="query"
+        title="Search"
+        placeholder="Type a song, artist, or album..."
+      />
+    </Form>
+  );
+}
