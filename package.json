@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "Tidal",
-  "title": "Tidal",
-  "description": "Tidal for RayCast",
+  "name": "Tiktok",
+  "title": "Tiktok",
+  "description": "Tiktok for RayCast",
   "icon": "extension-icon.png",
   "author": "A41K",
   "license": "MIT",
