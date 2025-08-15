@@ -1,8 +1,8 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "soundcloud",
-  "title": "SoundCloud",
-  "description": "Control SoundCloud",
+  "name": "Tidal",
+  "title": "Tidal",
+  "description": "Control Tidal",
   "icon": "extension-icon.png",
   "author": "samliu",
   "license": "MIT",
@@ -13,8 +13,8 @@
   "commands": [
     {
       "name": "open",
-      "title": "Open SoundCloud",
-      "description": "Open SoundCloud",
+      "title": "Open Tidal",
+      "description": "Open Tidal",
       "mode": "view"
     },
     {
